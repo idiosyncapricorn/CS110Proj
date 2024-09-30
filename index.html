@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Campus Calculation Center</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+            background-image: url('https://live.staticflickr.com/4326/35553788140_23c5dd9693_h.jpg');
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+        }
+
+        .description-container {
+            background-color: rgb(0, 0, 0); /* Blue background with some transparency */
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        
+        h1, h2 {
+            font-size: 80px;
+            color: rgb(255, 0, 0); /* Ensure the headings are visible */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main-title">Campus Calculation Center</h1>
+
+    <div class="description-container">
+        <div class="description">
+            <p>This Flask application was developed as part of a computer science class project, aiming to demonstrate practical web development skills and interactive tool creation. It features three distinct functionalities designed to handle specific types of calculations and data management:</p>
+            <ul>
+                <li><strong>Calculate Weekday:</strong> Determine the day of the week for any given day of the year.</li>
+                <li><strong>Wedding Planning:</strong> Help couples calculate the number of buses needed for their wedding guests.</li>
+                <li><strong>Jackalope Population:</strong> Estimate the population of jackalopes over a number of generations.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Black Container for Calculation Sections -->
+    <div class="black-container">
+        <!-- Calculate Weekday Section -->
+        <div id="calculate_weekday" class="calc-section">
+            <h3>Calculate the Weekday</h3>
+            <form id="weekdayForm">
+                <label for="january_1st_weekday">Enter the weekday number of January 1st:</label>
+                <input type="number" id="january_1st_weekday" required>
+                
+                <label for="days_into_year">Enter the day number of the year:</label>
+                <input type="number" id="days_into_year" required>
+                
+                <button type="submit">Calculate</button>
+            </form>
+            <div class="result" id="weekdayResult"></div>
+        </div>
+
+        <!-- Wedding Planning Section -->
+        <div id="wedding_planning" class="calc-section">
+            <h3>Wedding Planning</h3>
+            <form id="weddingForm">
+                <label for="bride_name">Bride's Name:</label>
+                <input type="text" id="bride_name" required>
+                
+                <label for="groom_name">Groom's Name:</label>
+                <input type="text" id="groom_name" required>
+                
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" required>
+                
+                <button type="submit">Calculate</button>
+            </form>
+            <div class="result" id="weddingResult"></div>
+        </div>
+
+        <!-- Jackalope Population Section -->
+        <div id="jackalope_population" class="calc-section">
+            <h3>Jackalope Population</h3>
+            <form id="jackalopeForm">
+                <label for="initial_population">Initial Population:</label>
+                <input type="number" id="initial_population" required>
+                
+                <label for="num_generations">Number of Generations:</label>
+                <input type="number" id="num_generations" required>
+                
+                <button type="submit">Calculate</button>
+            </form>
+            <div class="result" id="jackalopeResult"></div>
+        </div>
+    </div>
+
+    <!-- Red Container for License Information -->
+    <div class="red-container">
+        <footer>
+            <p>&copy; 2024 Gavin Morrison. All rights reserved.</p>
+            <p>Licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank" style="color: #007bff;">MIT License</a>.</p>
+            <p>This website and its contents are provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, or noninfringement.</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for handling form submissions goes here
+    </script>
+
+    <style>
+        .main-title {
+            font-size: 70px; /* Increased font size for h1 */
+            color: rgb(121, 6, 244); /* Text color for better visibility */
+            animation: stereo-flash 1.5s infinite; /* Apply animation */
+        }
+
+        @keyframes stereo-flash {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1); /* Scale up for flash effect */
+                opacity: 0.8; /* Slightly fade out */
+            }
+        }
+
+        .black-container {
+            background-color: black; /* Black background */
+            color: white; /* White text for contrast */
+            padding: 30px; /* Increased padding */
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 20px auto; /* Centers the container */
+        }
+
+        .calc-section {
+            margin-bottom: 30px; /* Space between sections */
+        }
+
+        h3 {
+            color: white; /* Ensure headings within the container are visible */
+        }
+
+        .red-container {
+            background-color: red; /* Red background for the license container */
+            color: white; /* White text for contrast */
+            padding: 15px; /* Padding for the container */
+            border-radius: 0; /* Remove rounding to stretch it */
+            text-align: center; /* Center the text */
+            width: 100%; /* Full width */
+            position: relative; /* Make sure it spans the full width */
+            left: 0; /* Align to the left */
+        }
+    </style>
+</body>
+
+<script>
+    // JavaScript for handling form submissions goes here
+</script>
+
+<style>
+    .black-container {
+        background-color: black; /* Black background */
+        color: white; /* White text for contrast */
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 800px;
+        margin: 20px auto; /* Centers the container */
+    }
+    
+    h3 {
+        color: white; /* Ensure headings within the container are visible */
+    }
+</style>
+
+    <script>
+        document.getElementById('weekdayForm').onsubmit = function(event) {
+            event.preventDefault();
+            const jan1Weekday = parseInt(document.getElementById('january_1st_weekday').value);
+            const dayOfYear = parseInt(document.getElementById('days_into_year').value);
+            const weekday = (jan1Weekday + dayOfYear - 1) % 7;
+            document.getElementById('weekdayResult').innerText = `The weekday number for that day is: ${weekday}`;
+        };
+
+        document.getElementById('weddingForm').onsubmit = function(event) {
+            event.preventDefault();
+            const brideName = document.getElementById('bride_name').value;
+            const groomName = document.getElementById('groom_name').value;
+            const guests = parseInt(document.getElementById('guests').value);
+            const busesNeeded = Math.ceil(guests / 50); // Assuming each bus holds 50 guests
+            const extraSeats = (busesNeeded * 50) - guests;
+            document.getElementById('weddingResult').innerText = `${brideName} & ${groomName}, you will need ${busesNeeded} buses and there will be ${extraSeats} extra seats.`;
+        };
+
+        document.getElementById('jackalopeForm').onsubmit = function(event) {
+            event.preventDefault();
+            const initialPopulation = parseInt(document.getElementById('initial_population').value);
+            const numGenerations = parseInt(document.getElementById('num_generations').value);
+            const birthRate = 1.2; // Assume a birth rate
+            const deathRate = 0.8; // Assume a death rate
+            let population = initialPopulation;
+
+            for (let i = 0; i < numGenerations; i++) {
+                population = Math.floor(population * birthRate * (1 - deathRate));
+            }
+            document.getElementById('jackalopeResult').innerText = `Estimated population after ${numGenerations} generations: ${population}`;
+        };
+    </script>
+</body>
+</html>
